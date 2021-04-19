@@ -20,7 +20,7 @@ yarn global add @pipelinedoc/cli
 
 ### Generate
 
-Generate markdown docs from your templates. Currently only supports Azure Pipelines templates.
+Generate asciidoc docs from your templates. Currently only supports Azure Pipelines templates.
 
 ```sh
 pipelinedoc generate <files> [options]
@@ -78,7 +78,7 @@ prefer). For example, if I had a `my-template.yml` template, I would create a
 name: My template
 version: 1
 description: |
-  This is my _fancy_ description with **markdown**!
+  This is my _fancy_ description with **asciidoc**!
 category: Utils
 parameters:
   myParameter:

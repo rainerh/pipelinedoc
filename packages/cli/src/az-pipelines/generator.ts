@@ -1,5 +1,5 @@
 import yaml from 'js-yaml';
-import { code, bold } from './utils/markdown';
+import { code, bold } from './utils/asciidoc';
 import {
   TemplateMetaData,
   GenerateOptions,
@@ -44,7 +44,7 @@ nunjucksEnv.addFilter('dumpYaml', (data: any) => {
 });
 
 nunjucksEnv.addFilter('heading', (depth: number) => {
-  return '#'.repeat(depth);
+  return '='.repeat(depth);
 });
 
 nunjucksEnv.addFilter('requiredParam', requiredParameter);
@@ -52,7 +52,7 @@ nunjucksEnv.addFilter('requiredParam', requiredParameter);
 nunjucksEnv.addFilter('paramName', (param: TemplateParameter) => {
   let paramName = code(param.name);
   if (requiredParameter(param)) {
-    paramName += bold('\\*');
+    paramName += " " + bold('( \* )');
   }
   if (param.displayName) {
     paramName += '<br/>' + param.displayName;
@@ -110,7 +110,7 @@ export function generate(
 
   return (
     nunjucksEnv
-      .render('template.md.njk', {
+      .render('template.adoc.njk', {
         template,
         meta,
         options: fullOptions,

@@ -15,7 +15,7 @@ import {
   unorderedList,
   link,
   comment,
-} from '../az-pipelines/utils/markdown';
+} from '../az-pipelines/utils/asciidoc';
 import yaml from 'js-yaml';
 import nunjucks from 'nunjucks';
 
@@ -327,21 +327,21 @@ export async function generateDocs(
             ...repoMeta,
             filePath: file,
           };
-          const markdown = generate(data, meta, generateOptions);
-          await writeAsync(path(outputDir, `${file}.md`), markdown);
+          const asciidoc = generate(data, meta, generateOptions);
+          await writeAsync(path(outputDir, `${file}.adoc`), asciidoc);
 
           return meta;
         })
     );
 
-    const indexFile = path(outputDir, 'index.md');
+    const indexFile = path(outputDir, 'index.adoc');
     const allCategories = Array.from(
       new Set([undefined, ...results.map((template) => template.category)])
     );
 
-    const markdown =
+    const asciidoc =
       nunjucksEnv
-        .render('index.md.njk', {
+        .render('index.adoc.njk', {
           options: generateOptions,
           hasCategories: !allCategories.every((x) => x === undefined),
           categories: allCategories.map((category) => ({
@@ -352,7 +352,7 @@ export async function generateDocs(
           })),
         })
         .trim() + '\n';
-    await writeAsync(indexFile, markdown);
+    await writeAsync(indexFile, asciidoc);
   } catch (e) {
     trackError(e.message);
   }

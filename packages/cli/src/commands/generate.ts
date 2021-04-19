@@ -31,7 +31,8 @@ module.exports = {
     const repoMeta: Partial<TemplateMetaData> = {
       repo: {
         ...repoDetails,
-        identifier: options.repoIdentifier ?? 'templates'
+        identifier: options.repoIdentifier ?? 'templates',
+        endpoint: options.repoServiceConnectionEndpoint ?? ''
       }
     };
 

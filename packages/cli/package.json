@@ -1,6 +1,6 @@
 {
   "name": "@pipelinedoc/cli",
-  "version": "0.0.0-development",
+  "version": "1.7.0-development-asciidoc",
   "description": "CLI for generating docs from Azure Pipelines YAML templates",
   "types": "build/types/types.d.ts",
   "bin": {
