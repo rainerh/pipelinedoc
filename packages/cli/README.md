@@ -34,10 +34,12 @@ pipelinedoc generate <files> [options]
 #### Options
 
 - `--out-dir`, `-o`: specify the directory to output the files to. Defaults to `./docs`.
+- `--clear-output-dir`, `-c`: clear the output directory before creating docs. Defaults to `false`.
 - `--strict`: in strict mode, warnings are considered errors and the CLI will exit with a non-zero
   exit code.
 - `--repo-identifier`: the repo identifier for importing templates in Azure Pipelines. Defaults to
   `templates`.
+- `--repo-service-connection-endpoint`: the repo service connection endpoint to use with Azure DevOps
 - `--generate-frontmatter`: generate YAML frontmatter on each `.md` file with machine-readable
   metadata.
 - `--assert-unstaged`: exit with a non-zero exit if there are unstaged docs files after generating

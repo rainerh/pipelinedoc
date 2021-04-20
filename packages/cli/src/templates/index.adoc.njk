@@ -5,11 +5,14 @@
 {% for category in categories -%}
 {%- if category.templates.length > 0 %}
 {%- if hasCategories %}
+<<<
 == {{ category.name or 'Uncategorized' }}
 {% endif %}
 
+:leveloffset: +2
 {%- for template in category.templates %}
-* [{{ template.name }}]({{ template.filePath }}.md)
+include::{{ template.filePath }}.adoc[]
 {%- endfor %}
+:leveloffset: -2
 {%- endif %}
 {% endfor %}

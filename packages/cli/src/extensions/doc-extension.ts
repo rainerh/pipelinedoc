@@ -40,7 +40,8 @@ export interface DocExtension {
     files: string[],
     generateOptions: Partial<GenerateOptions>,
     repoMeta: Partial<TemplateMetaData>,
-    outputDir: string
+    outputDir: string,
+    clearOutputDir: boolean
   ): Promise<void>;
   getGitUrl(): Promise<any>;
   getRepoDetails(): Promise<RepoMetaData>;

@@ -227,7 +227,8 @@ export async function generateDocs(
   files: string[],
   generateOptions: Partial<GenerateOptions>,
   repoMeta: Partial<TemplateMetaData>,
-  outputDir: string
+  outputDir: string,
+  clearOutputDir: boolean
 ) {
   const {
     filesystem: { readAsync, writeAsync, path, dirAsync },
@@ -243,7 +244,7 @@ export async function generateDocs(
   } = toolbox;
 
   try {
-    await dirAsync(outputDir, { empty: true });
+    await dirAsync(outputDir, { empty: !!clearOutputDir });
 
     const results = await Promise.all(
       files
@@ -287,6 +288,7 @@ export async function generateDocs(
               description: fromFile.description,
               version: fromFile.version,
               category: fromFile.category,
+              diagrams: fromFile.diagrams,
               deprecated: fromFile.deprecated ?? !!fromFile.deprecatedWarning,
               deprecatedWarning: fromFile.deprecatedWarning,
               parameters: fromFile.parameters,

@@ -35,6 +35,17 @@ _Version: {{ meta.version }}_ +
 {{ meta.description | trim }}
 {%- endif %}
 
+{% if meta.diagrams %}
+{% for diagram in meta.diagrams %}
+.{{ diagram.title if diagram.title else 'Overview ' + loop.index }}
+
+{{ diagram.description }}
+
+image::{{ diagram.diagram }}[]
+
+{% endfor %}
+{% endif %}
+
 {% if meta.filePath and derived.templateType %}
 {{ (options.headingDepth + 1) | heading }} Example usage
 

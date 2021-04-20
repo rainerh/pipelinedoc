@@ -12,6 +12,8 @@ _Version: 1_ +
 A stages template with parameters and a properties file.
 
 
+
+
 == Example usage
 
 === Use template repository

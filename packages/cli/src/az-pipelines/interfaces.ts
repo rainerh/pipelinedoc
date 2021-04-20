@@ -19,11 +19,18 @@ export interface TemplateExample {
   example?: any;
 }
 
+export interface Diagram {
+  title?: string;
+  description?: string;
+  diagram: any;
+}
+
 export interface TemplateMetaData {
   name: string;
   description?: string;
   version?: number | string;
   category?: string;
+  diagrams?: Diagram[];
   deprecated?: boolean;
   deprecatedWarning?: string;
   filePath?: string;

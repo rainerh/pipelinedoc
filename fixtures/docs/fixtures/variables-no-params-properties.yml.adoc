@@ -11,6 +11,8 @@ _Template type: `variables`_ +
 A variables template with no parameters and a properties file.
 
 
+
+
 == Example usage
 
 === Use template repository

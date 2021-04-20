@@ -36,6 +36,8 @@ module.exports = {
       }
     };
 
+    const clearOutputDir = options.clearOutputDir ?? options.c ?? false;
+
     const outputDir = options.outDir ?? options.o ?? './docs';
 
     if (options.watch || options.w) {
@@ -45,11 +47,11 @@ module.exports = {
       });
       watcher.on('add', async file => {
         info('File added: ', file);
-        await generateDocs([file], generateOptions, repoMeta, outputDir);
+        await generateDocs([file], generateOptions, repoMeta, outputDir, clearOutputDir);
       });
       watcher.on('change', async file => {
         info('File changed: ', file);
-        await generateDocs([file], generateOptions, repoMeta, outputDir);
+        await generateDocs([file], generateOptions, repoMeta, outputDir, clearOutputDir);
       });
     } else {
       const files = (
@@ -62,7 +64,7 @@ module.exports = {
         )
       ).flat();
 
-      await generateDocs(files, generateOptions, repoMeta, outputDir);
+      await generateDocs(files, generateOptions, repoMeta, outputDir, clearOutputDir);
 
       if (options.assertUnstaged) {
         await assertNoUnstagedDocs(outputDir);
