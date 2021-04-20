@@ -37,6 +37,7 @@ export interface TemplateMetaData {
   repo?: RepoMetaData;
   parameters?: ParametersMetaData;
   examples?: TemplateExample[];
+  usageStyle?: 'insert' | 'extend';
 }
 
 export interface GenerateOptions {

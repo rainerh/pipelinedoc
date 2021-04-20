@@ -288,10 +288,11 @@ export async function generateDocs(
               description: fromFile.description,
               version: fromFile.version,
               category: fromFile.category,
-              diagrams: fromFile.diagrams,
+              usageStyle: fromFile.usageStyle ?? 'insert',
               deprecated: fromFile.deprecated ?? !!fromFile.deprecatedWarning,
               deprecatedWarning: fromFile.deprecatedWarning,
               parameters: fromFile.parameters,
+              diagrams: fromFile.diagrams,
               examples: fromFile.examples,
             };
 
@@ -309,6 +310,20 @@ export async function generateDocs(
             assertValidProperty(
               propertiesFile,
               properties,
+              'category',
+              'string',
+              false
+            );
+            assertValidProperty(
+              propertiesFile,
+              properties,
+              'usageStyle',
+              'string',
+              false
+            );
+            assertValidProperty(
+              propertiesFile,
+              properties,
               'deprecated',
               'boolean',
               false
@@ -318,6 +333,20 @@ export async function generateDocs(
               properties,
               'deprecatedWarning',
               'string',
+              false
+            );
+            assertValidProperty(
+                propertiesFile,
+                properties,
+                'diagrams',
+                'object',
+                false
+            );
+            assertValidProperty(
+              propertiesFile,
+              properties,
+              'examples',
+              'object',
               false
             );
 
