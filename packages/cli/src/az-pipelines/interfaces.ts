@@ -43,6 +43,7 @@ export interface TemplateMetaData {
 export interface GenerateOptions {
   headingDepth: number;
   generateFrontmatter: boolean;
+  generatorFormat?: 'markdown' | 'asciidoc'
   generator: {
     name: string;
     version: string;

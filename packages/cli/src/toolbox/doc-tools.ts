@@ -11,11 +11,8 @@ import {
   generate,
 } from '../az-pipelines';
 import {
-  heading,
-  unorderedList,
-  link,
-  comment,
-} from '../az-pipelines/utils/asciidoc';
+  provideFormatter
+} from '../az-pipelines/utils/formatter';
 import yaml from 'js-yaml';
 import nunjucks from 'nunjucks';
 
@@ -246,6 +243,8 @@ export async function generateDocs(
   try {
     await dirAsync(outputDir, { empty: !!clearOutputDir });
 
+    const extension = generateOptions.generatorFormat === 'asciidoc' ? 'adoc' : 'md'
+
     const results = await Promise.all(
       files
         .filter(
@@ -358,21 +357,22 @@ export async function generateDocs(
             ...repoMeta,
             filePath: file,
           };
-          const asciidoc = generate(data, meta, generateOptions);
-          await writeAsync(path(outputDir, `${file}.adoc`), asciidoc);
+
+          const generated = generate(data, meta, generateOptions);
+          await writeAsync(path(outputDir, `${file}.${extension}`), generated);
 
           return meta;
         })
     );
 
-    const indexFile = path(outputDir, 'index.adoc');
+    const indexFile = path(outputDir, 'index.' + `${extension}`);
     const allCategories = Array.from(
       new Set([undefined, ...results.map((template) => template.category)])
     );
 
-    const asciidoc =
+    const generated =
       nunjucksEnv
-        .render('index.adoc.njk', {
+        .render('index.' + `${extension}` +'.njk', {
           options: generateOptions,
           hasCategories: !allCategories.every((x) => x === undefined),
           categories: allCategories.map((category) => ({
@@ -383,7 +383,7 @@ export async function generateDocs(
           })),
         })
         .trim() + '\n';
-    await writeAsync(indexFile, asciidoc);
+    await writeAsync(indexFile, generated);
   } catch (e) {
     trackError(e.message);
   }

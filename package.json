@@ -8,7 +8,7 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "docs": "pipelinedoc generate fixtures/**/*.yml --out-dir fixtures/docs",
+    "docs": "pipelinedoc generate --generatorFormat markdown fixtures/**/*.yml --out-dir fixtures/docs && pipelinedoc generate --generatorFormat asciidoc fixtures/**/*.yml --out-dir fixtures/docs",
     "docs:watch": "yarn docs --watch",
     "pre-commit": "yarn docs --assert-unstaged"
   }

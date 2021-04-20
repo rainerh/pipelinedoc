@@ -1,5 +1,5 @@
 import yaml from 'js-yaml';
-import { code, bold } from './utils/asciidoc';
+import {provideFormatter} from './utils/formatter';
 import {
   TemplateMetaData,
   GenerateOptions,
@@ -13,6 +13,12 @@ import {
 } from './utils/templates';
 import nunjucks from 'nunjucks';
 import path from 'path';
+
+let generatorFormat = 'markdown'
+
+export function getFormatter() {
+    return provideFormatter(generatorFormat)
+}
 
 const nunjucksEnv = new nunjucks.Environment(
   new nunjucks.FileSystemLoader(path.resolve(__dirname, '../templates')),
@@ -44,15 +50,15 @@ nunjucksEnv.addFilter('dumpYaml', (data: any) => {
 });
 
 nunjucksEnv.addFilter('heading', (depth: number) => {
-  return '='.repeat(depth);
+    return (generatorFormat === 'asciidoc' ? '=' : '#').repeat(depth);
 });
 
 nunjucksEnv.addFilter('requiredParam', requiredParameter);
 
 nunjucksEnv.addFilter('paramName', (param: TemplateParameter) => {
-  let paramName = code(param.name);
+  let paramName = getFormatter().code(param.name);
   if (requiredParameter(param)) {
-    paramName += " " + bold('( \* )');
+    paramName += " " + getFormatter().bold(generatorFormat === 'asciidoc' ? '\*' : '\\*');
   }
   if (param.displayName) {
     paramName += '<br/>' + param.displayName;
@@ -61,9 +67,9 @@ nunjucksEnv.addFilter('paramName', (param: TemplateParameter) => {
 });
 
 nunjucksEnv.addFilter('paramType', (param: TemplateParameter) => {
-  let paramType = param.type ? code(param.type) : '';
+  let paramType = param.type ? getFormatter().code(param.type) : '';
   if (param.values) {
-    const values = param.values.map((value) => code(JSON.stringify(value)));
+    const values = param.values.map((value) => getFormatter().code(JSON.stringify(value)));
     paramType += ' ' + `(${values.join(' \\| ')})`;
   }
   return paramType;
@@ -71,7 +77,7 @@ nunjucksEnv.addFilter('paramType', (param: TemplateParameter) => {
 
 nunjucksEnv.addFilter('paramDefault', (param: TemplateParameter) => {
   if (!requiredParameter(param)) {
-    return code(JSON.stringify(param.default));
+    return getFormatter().code(JSON.stringify(param.default));
   }
   return '';
 });
@@ -95,8 +101,11 @@ export function generate(
   const fullOptions: GenerateOptions = {
     headingDepth: options?.headingDepth ?? 1,
     generateFrontmatter: options?.generateFrontmatter ?? false,
+    generatorFormat: options?.generatorFormat ?? 'markdown',
     generator: options?.generator ?? { name: 'unknown', version: '0' },
   };
+
+  generatorFormat = fullOptions.generatorFormat
 
   const parameterList = getParameterList(template.parameters);
   const derived = {
@@ -108,9 +117,10 @@ export function generate(
     ),
   };
 
+  const extension = fullOptions.generatorFormat === 'asciidoc' ? 'adoc' : 'md'
   return (
     nunjucksEnv
-      .render('template.adoc.njk', {
+      .render('template.' + `${extension}` +'.njk', {
         template,
         meta,
         options: fullOptions,

@@ -22,6 +22,7 @@ module.exports = {
     const generateOptions: Partial<GenerateOptions> = {
       headingDepth: 1,
       generateFrontmatter: options.generateFrontmatter,
+      generatorFormat: options.generatorFormat,
       generator: {
         name: brand,
         version: version()
@@ -73,6 +74,9 @@ module.exports = {
       if (hadErrors()) {
         process.exit(1);
       }
+    }
+    function getOptions () {
+      return generateOptions;
     }
   }
 };
