@@ -20,7 +20,7 @@ A variables template with no parameters and a properties file.
 resources:
   repositories:
     - repo: templates
-      name: blake-mealey/pipelinedoc
+      name: rainerh/pipelinedoc
       type: github
 ```
 

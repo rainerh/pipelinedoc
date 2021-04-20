@@ -20,7 +20,7 @@ _Template type: `steps`_
 resources:
   repositories:
     - repo: templates
-      name: blake-mealey/pipelinedoc
+      name: rainerh/pipelinedoc
       type: github
 ```
 

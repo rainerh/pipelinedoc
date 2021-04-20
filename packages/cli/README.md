@@ -72,6 +72,9 @@ prefer). For example, if I had a `my-template.yml` template, I would create a
 - `deprecatedWarning`: a message to include with the deprecated warning. Markdown is supported.
 - `parameters.<parameter name>.description`: the description of the parameter. Markdown is
   supported.
+- `diagrams.<index>.title`: the title of a diagram. Markdown is supported.
+- `diagrams.<index>.description`: the description of a diagram. Markdown is supported.
+- `diagrams.<index>.diagram`: the link to the image file.
 - `examples.<index>.title`: the title of a usage example. Markdown is supported.
 - `examples.<index>.description`: the description of a usage example. Markdown is supported.
 - `examples.<index>.example`: the example YAML object. Examples may include variables in keys or

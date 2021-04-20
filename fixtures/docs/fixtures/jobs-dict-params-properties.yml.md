@@ -22,7 +22,7 @@ A jobs template with parameters specified as a dictionary and a properties file.
 resources:
   repositories:
     - repo: templates
-      name: blake-mealey/pipelinedoc
+      name: rainerh/pipelinedoc
       type: github
 ```
 
