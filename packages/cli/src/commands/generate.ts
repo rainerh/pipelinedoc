@@ -23,6 +23,7 @@ module.exports = {
       headingDepth: 1,
       generateFrontmatter: options.generateFrontmatter,
       generatorFormat: options.generatorFormat,
+      indexFileName: options?.indexFileName ?? 'index',
       generator: {
         name: brand,
         version: version()

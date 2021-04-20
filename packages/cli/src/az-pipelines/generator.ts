@@ -102,6 +102,7 @@ export function generate(
     headingDepth: options?.headingDepth ?? 1,
     generateFrontmatter: options?.generateFrontmatter ?? false,
     generatorFormat: options?.generatorFormat ?? 'markdown',
+    indexFileName: options?.indexFileName ?? 'index',
     generator: options?.generator ?? { name: 'unknown', version: '0' },
   };
 

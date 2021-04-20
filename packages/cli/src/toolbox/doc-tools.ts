@@ -365,7 +365,7 @@ export async function generateDocs(
         })
     );
 
-    const indexFile = path(outputDir, 'index.' + `${extension}`);
+    const indexFile = path(outputDir, generateOptions.indexFileName + '.' + `${extension}`);
     const allCategories = Array.from(
       new Set([undefined, ...results.map((template) => template.category)])
     );

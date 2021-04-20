@@ -44,6 +44,7 @@ export interface GenerateOptions {
   headingDepth: number;
   generateFrontmatter: boolean;
   generatorFormat?: 'markdown' | 'asciidoc'
+  indexFileName?: string
   generator: {
     name: string;
     version: string;
