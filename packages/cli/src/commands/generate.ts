@@ -28,7 +28,8 @@ module.exports = {
         name: brand,
         version: version()
       },
-      sourceRepositoryUrl: options.sourceRepositoryUrl
+      sourceRepositoryUrl: options.sourceRepositoryUrl,
+      libraryName: options.repoIdentifier ?? ''
     };
 
     const repoMeta: Partial<TemplateMetaData> = {

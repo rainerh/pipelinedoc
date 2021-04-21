@@ -51,6 +51,7 @@ export interface GenerateOptions {
     version: string;
   };
   sourceRepositoryUrl?: string
+  libraryName?: string
 }
 
 export type TemplateParameterType =
