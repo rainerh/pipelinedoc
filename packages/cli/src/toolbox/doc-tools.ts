@@ -293,6 +293,7 @@ export async function generateDocs(
               parameters: fromFile.parameters,
               diagrams: fromFile.diagrams,
               examples: fromFile.examples,
+              propertiesFileName: propertiesFile
             };
 
             assertValidProperty(propertiesFile, properties, 'name', 'string');

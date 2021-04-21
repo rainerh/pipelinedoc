@@ -33,6 +33,7 @@ export interface TemplateMetaData {
   diagrams?: Diagram[];
   deprecated?: boolean;
   deprecatedWarning?: string;
+  propertiesFileName?: string;
   filePath?: string;
   repo?: RepoMetaData;
   parameters?: ParametersMetaData;
@@ -49,6 +50,7 @@ export interface GenerateOptions {
     name: string;
     version: string;
   };
+  sourceRepositoryUrl?: string
 }
 
 export type TemplateParameterType =

@@ -4,9 +4,15 @@
 
 
 
-_Source: link:/fixtures/steps-mixed-parameters.yml[/fixtures/steps-mixed-parameters.yml]_ +
+[NOTE]
+====
+_Source: link:%2Ffixtures%2Fsteps-mixed-parameters.yml[/fixtures/steps-mixed-parameters.yml]_ +
 _Template type: `steps`_ +
 
+
+_Please help to improve the documentation here:_
+_link:%2Fundefined[/undefined]_ +
+====
 
 
 

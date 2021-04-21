@@ -27,7 +27,8 @@ module.exports = {
       generator: {
         name: brand,
         version: version()
-      }
+      },
+      sourceRepositoryUrl: options.sourceRepositoryUrl
     };
 
     const repoMeta: Partial<TemplateMetaData> = {

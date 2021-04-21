@@ -4,9 +4,15 @@
 
 
 
-_Source: link:/fixtures/steps-optional-parameters.yml[/fixtures/steps-optional-parameters.yml]_ +
+[NOTE]
+====
+_Source: link:%2Ffixtures%2Fsteps-optional-parameters.yml[/fixtures/steps-optional-parameters.yml]_ +
 _Template type: `steps`_ +
 
+
+_Please help to improve the documentation here:_
+_link:%2Fundefined[/undefined]_ +
+====
 
 
 

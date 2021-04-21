@@ -23,13 +23,19 @@
 ⚠ DEPRECATED ⚠
 {%- endif %}
 
-_Source: link:{{ '/' + meta.filePath }}[{{ '/' + meta.filePath }}]_ +
+[NOTE]
+====
+_Source: link:{{ options.sourceRepositoryUrl }}{{ ('/' + meta.filePath) | urlencode }}[{{ '/' + meta.filePath }}]_ +
 {% if derived.templateType -%}
 _Template type: `{{ derived.templateType }}`_ +
 {% endif -%}
 {% if meta.version -%}
 _Version: {{ meta.version }}_ +
 {% endif %}
+
+_Please help to improve the documentation here:_
+_link:{{ options.sourceRepositoryUrl }}{{ ('/' + meta.propertiesFileName) | urlencode }}[{{ '/' + meta.propertiesFileName }}]_ +
+====
 
 {% if meta.description -%}
 {{ meta.description | trim }}

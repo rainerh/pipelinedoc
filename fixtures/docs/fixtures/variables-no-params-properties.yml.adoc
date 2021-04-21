@@ -4,9 +4,15 @@
 
 
 
-_Source: link:/fixtures/variables-no-params-properties.yml[/fixtures/variables-no-params-properties.yml]_ +
+[NOTE]
+====
+_Source: link:%2Ffixtures%2Fvariables-no-params-properties.yml[/fixtures/variables-no-params-properties.yml]_ +
 _Template type: `variables`_ +
 
+
+_Please help to improve the documentation here:_
+_link:%2Ffixtures%2Fvariables-no-params-properties.properties.yml[/fixtures/variables-no-params-properties.properties.yml]_ +
+====
 
 A variables template with no parameters and a properties file.
 

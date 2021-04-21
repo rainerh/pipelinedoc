@@ -4,10 +4,16 @@
 
 
 
-_Source: link:/fixtures/stages-params-properties.yml[/fixtures/stages-params-properties.yml]_ +
+[NOTE]
+====
+_Source: link:%2Ffixtures%2Fstages-params-properties.yml[/fixtures/stages-params-properties.yml]_ +
 _Template type: `stages`_ +
 _Version: 1_ +
 
+
+_Please help to improve the documentation here:_
+_link:%2Ffixtures%2Fstages-params-properties.properties.yml[/fixtures/stages-params-properties.properties.yml]_ +
+====
 
 A stages template with parameters and a properties file.
 

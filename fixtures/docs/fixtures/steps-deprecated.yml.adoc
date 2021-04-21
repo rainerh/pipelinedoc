@@ -4,9 +4,15 @@
 
 ⚠ DEPRECATED: Use something else ⚠
 
-_Source: link:/fixtures/steps-deprecated.yml[/fixtures/steps-deprecated.yml]_ +
+[NOTE]
+====
+_Source: link:%2Ffixtures%2Fsteps-deprecated.yml[/fixtures/steps-deprecated.yml]_ +
 _Template type: `steps`_ +
 
+
+_Please help to improve the documentation here:_
+_link:%2Ffixtures%2Fsteps-deprecated.properties.yml[/fixtures/steps-deprecated.properties.yml]_ +
+====
 
 
 

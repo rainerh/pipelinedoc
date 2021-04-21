@@ -104,6 +104,7 @@ export function generate(
     generatorFormat: options?.generatorFormat ?? 'markdown',
     indexFileName: options?.indexFileName ?? 'index',
     generator: options?.generator ?? { name: 'unknown', version: '0' },
+    sourceRepositoryUrl: options?.sourceRepositoryUrl ?? ''
   };
 
   generatorFormat = fullOptions.generatorFormat

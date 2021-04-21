@@ -4,10 +4,16 @@
 
 
 
-_Source: link:/fixtures/jobs-dict-params-properties.yml[/fixtures/jobs-dict-params-properties.yml]_ +
+[NOTE]
+====
+_Source: link:%2Ffixtures%2Fjobs-dict-params-properties.yml[/fixtures/jobs-dict-params-properties.yml]_ +
 _Template type: `jobs`_ +
 _Version: 1_ +
 
+
+_Please help to improve the documentation here:_
+_link:%2Ffixtures%2Fjobs-dict-params-properties.properties.yml[/fixtures/jobs-dict-params-properties.properties.yml]_ +
+====
 
 A jobs template with parameters specified as a dictionary and a properties file.
 
