@@ -31,7 +31,6 @@ resources:
     - repo: templates
       name: rainerh/pipelinedoc
       type: github
-      endpoint: ''
 ----
 
 
